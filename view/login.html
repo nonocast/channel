@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <title>login</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="/javascripts/jquery/dist/jquery.js"></script>
+  <script src="/javascripts/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/javascripts/underscore/underscore.js"></script>
+  <script src="/javascripts/backbone/backbone.js"></script>
+  <script src="/javascripts/coffee-script/extras/coffee-script.js"></script>
+  <style>
+    #email, #password { width: 250px; }
+    body{font-family:"Open Sans",sans-serif;max-width:985px;margin:auto;background-color:#fff;line-height:18px}
+    body,td,th,p{font-size:15px}
+    h1,h2{color:#444}
+    input{padding:6px;border:1px solid #aaa;min-width:250px;font-size:18px}
+    h1{margin:25px 0 5px 0;font-size:25px}
+    h2{margin:25px 0 5px 0;font-size:20px}
+    li{padding:3px}
+    dt,form,dl{margin:0;padding:0}
+    dt{color:#777}
+    dd{margin:2px 0 7px 0}
+    a{padding:1px;text-decoration:none;color:#dd4b39}
+    a:hover{text-decoration:underline}
+    #top,#content{max-width:920px}
+    #top,#content{padding-left:40px;padding-right:40px}
+    #top{margin-top:30px;margin-bottom:30px}
+    #logo{height:65px;margin-left:0px;text-align:left}
+    #content{text-align:left}
+    .separator{margin-top:25px;margin-bottom:25px;height:0;border-top:1px solid #ddd;border-bottom:1px solid white;position:relative}
+    .middle_separator{position:absolute;padding:0 16px;color:#ccc;background:white;font-size:11px;text-shadow:0 1px 0 white;text-transform:uppercase;top:-7px;left:30%}
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Open Sans'), local('OpenSans'), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/u-WUoqrET9fUeobQW7jkRT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+    }
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 600;
+      src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/MTP_ySUJH_bn48VBG8sNSha1RVmPjeKy21_GQJaLlJI.woff) format('woff');
+    }
+    .amibutton{
+      font-weight:600;
+      font-size:11px !important;
+      line-height:17px;
+      display:inline-block;
+      text-decoration:none;
+      padding:5px 12px;
+      position:relative;
+      text-shadow:0 1px 0 #fff;
+      background:#f3f3f3;
+      white-space:nowrap;
+      border:solid 1px #dcdcdc;
+      background:-webkit-gradient(linear,0% 40%,0% 70%,from(#f5f5f5),to(#f1f1f1));
+      background:-moz-linear-gradient(linear,0% 40%,0% 70%,from(#f5f5f5),to(#f1f1f1));
+      border-radius:2px !important
+    }
+    .amibutton,.amibutton:visited{color:#6e6e6e !important;text-decoration:none !important}
+    .amibutton img{vertical-align:middle;border:0;margin-right:4px !important}
+    .amibutton span{padding:0 !important;text-decoration:none !important}
+    .amibutton:hover{color:#333;border-color:#999;box-shadow:0 1px 2px rgba(0,0,0,0.15);text-decoration:none !important}
+    .amibutton:active{color:#000;border-color:#000 !important}
+    .amibutton_red,.amibutton_red:visited{background:0;background-color:#dd4b39;color:white !important;text-shadow:none;border:1px solid transparent}
+    .amibutton_red:hover{
+      border-color:#b0281a;
+      background-color:#c53727;
+      background-image:-webkit-linear-gradient(top,#dd4b39,#c53727);
+      background-image:-moz-linear-gradient(top,#dd4b39,#c53727);
+      background-image:-ms-linear-gradient(top,#dd4b39,#c53727);
+      background-image:-o-linear-gradient(top,#dd4b39,#c53727);
+      background-image:linear-gradient(top,#dd4b39,#c53727);
+      box-shadow:0 1px 2px rgba(0,0,0,0.15)
+    }
+    .amibutton_mini img{margin-right:0 !important}
+  </style>
+  <script type="text/coffeescript">
+    $ ->
+      $(document).keypress (event) -> if event.which is 13 then $('.submit a').click()
+      $('.submit a').click (event) ->
+        $('form#login_form').submit()
+  </script>
+</head>
+<body>
+<div id="top">
+  <div id="logo">
+    <h1>内部团队协作站点</h1>
+    <p style="margin-left:3px;">One team, one channel<br>and keep everyone on the same page</p>
+  </div>
+  <div id="indicator"></div>
+</div>
+<div id="content">
+  <div class="content">
+    <div class="separator separator_login_page">
+      <div class="middle_separator"></div>
+    </div>
+    <form id="login_form" method="post" action="/login">
+      <dl>
+        <dt>电子邮箱:</dt>
+        <dd><input type="email" name="email" class="input" id="email" tabindex="1" value=""><span style="color:#777;"> @ shgbit.com</span></dd>
+
+        <dt>密码:</dt>
+        <dd><input type="password" name="password" class="input" tabindex="2" id="password"></dd>
+
+        <dd class="submit" style="margin-top: 10px">
+          <a href="javascript:void(0)" class="amibutton amibutton_red" tabindex="3">登录</a>
+          <br>
+          <br>
+          <a href="/forgot" tabindex="4"">忘记密码？</a><br>
+          <span style="color:#777;font-size:80%;">如果您是第一次使用，可以在输入电子邮箱后点击忘记密码，系统会自动将密码送至您的邮箱</span>
+
+          <div class="separator separator_login_page"></div>
+
+          <span class="desc">
+          需要更多的帮助？ <a href="mailto:nonocast@gmail.com" target="_blank">联系我们的技术支持</a>
+          <div style="padding-top: 8px">
+          还没有账户？
+          <a href="/register"><span>花几秒钟时间注册</span></a>
+          </div>
+          </span>
+        </dd>
+      </dl>
+    </form>
+  </div>
+</div>
+</body>
+</html>
+
