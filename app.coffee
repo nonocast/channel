@@ -18,7 +18,7 @@ app.use logger 'dev'
 app.use bodyParser.json()
 app.use bodyParser.urlencoded()
 app.use cookieParser()
-app.use session secret: 'h705c', key: 'sid', cookie: { maxAge: 5*60*1000 } # 5 min
+app.use session secret: 'h705c', key: 'sid', cookie: { maxAge: 20*60*1000 } # 20 min
 app.use express.static path.join __dirname, 'public'
 
 app.use require './routes'

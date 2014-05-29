@@ -84,12 +84,15 @@ body {
 
 .bs-docs-nav .navbar-brand, .bs-docs-nav .navbar-nav>li>a {
     color: #563d7c;
-    font-weight: 500
+    color: #777;
+    font-weight: 500;
 }
 
 .bs-docs-nav .navbar-nav>li>a:hover, .bs-docs-nav .navbar-nav>.active>a,
 .bs-docs-nav .navbar-nav>.active>a:hover {
     color: #463265;
+    color: #dd4b39;
+    font-weight: bold;
     background-color: #f9f9f9
 }
 
@@ -464,11 +467,13 @@ body {
 }
 
 .bs-docs-sidebar .nav>li>a:hover, .bs-docs-sidebar .nav>li>a:focus {
-    padding-left: 19px;
+    padding-left: 18px;
     color: #563d7c;
+    color: #d9534f;
     text-decoration: none;
     background-color: transparent;
-    border-left: 1px solid #563d7c
+    border-left: 1px solid #563d7c;
+    border-left: 2px solid #d9534f;
 }
 
 .bs-docs-sidebar .nav>.active>a, .bs-docs-sidebar .nav>.active:hover>a,
@@ -476,8 +481,10 @@ body {
     padding-left: 18px;
     font-weight: 700;
     color: #563d7c;
+    color: #d9534f;
     background-color: transparent;
-    border-left: 2px solid #563d7c
+    border-left: 2px solid #563d7c;
+    border-left: 2px solid #d9534f;
 }
 
 .bs-docs-sidebar .nav .nav {

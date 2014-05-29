@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Index</title>
+<title>Config</title>
 <link rel="stylesheet" href="/javascripts/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="/stylesheets/docs.css">
 <script src="/javascripts/jquery/dist/jquery.js"></script>
@@ -13,28 +13,27 @@
 <script src="/javascripts/coffee-script/extras/coffee-script.js"></script>
 <script src="/javascripts/numeral/min/numeral.min.js"></script>
 <Script src="/javascripts/raphael/raphael-min.js"></script>
-<!-- <Script src="/javascripts/d3/d3.min.js"></script> -->
 <Script src="/javascripts/app.coffee" type="text/coffeescript"></script>
 <style>
 .part-container { width: 970px; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; }
 </style>
 <script type="text/coffeescript">
   class AppRouter extends Backbone.Router
-    routes: { '': 'project', 'mbo', 'talk', 'blog', 'project', 'task', 'calendar', 'administrator', 'meeting', 'people', 'about' }
+    routes: { '': 'project', 'mbo', 'talk', 'blog', 'project', 'task', 'calendar', 'administrator', 'meeting', 'people' }
 
     mbo: -> @load 'mbo'
     talk: -> @load 'talk'
     blog: -> @load 'blog'
-    project: -> @load 'project', -> new window.ProjectController().render()
-    calendar: -> @load 'calendar', -> new window.CalendarController().render()
+    project: -> @load 'project'
+    calendar: -> @load 'calendar'
     task: -> @load 'task'
     meeting: -> @load 'meeting'
     administrator: -> @load 'administrator'
-    people: -> @load 'people', -> new window.PeopleController().render()
+    people: -> @load 'people'
     about : -> @load 'about'
 
     load: (part, callback) ->
-      $('#stage').load "/app/#{part}", callback
+      $('#stage').load "/config/#{part}", callback
       $(".navbar-nav li").removeClass 'active'
       $("#nav-#{part}").addClass 'active'
 
@@ -49,14 +48,14 @@
 <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
   <div class="container">
     <div class="navbar-header">
-      <a href="#about" class="navbar-brand">团队协作</a>
+      <a href="#" class="navbar-brand">团队协作</a>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li id="nav-mbo"><a href="#mbo">目标</a></li>
         <li id="nav-project"><a href="#project">项目</a></li>
         <li id="nav-talk"><a href="#talk">沟通</a></li>
-        <li id="nav-blog"><a href="#blog">博客</a></li>
+        <li id="nav-talk"><a href="#blog">博客</a></li>
         <li id="nav-task"><a href="#task">任务</a></li>
         <li id="nav-calendar"><a href="#calendar">日历</a></li>
         <li id="nav-meeting"><a href="#meeting">会议</a></li>
